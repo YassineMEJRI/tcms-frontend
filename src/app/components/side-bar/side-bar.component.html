@@ -1,0 +1,8 @@
+<div
+[ngClass]="{'h-full w-56 bg-blue-700': true,
+'-translate-x-56': !isOpen}">
+  <button (click)="toggleMenu()"
+  [ngClass]="{'bg-white rounded-full w-10 h-10 mx-4': true,
+              'translate-x-56' : !isOpen}">O</button>
+
+</div>

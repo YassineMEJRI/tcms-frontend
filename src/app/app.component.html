@@ -1,23 +1,28 @@
-<app-top-bar></app-top-bar>
-<div *ngFor="let stagiaire of stagiaires">
-  {{stagiaire.email}}
-</div>
-<div class="grid grid-cols-4 gap-3">
-  <app-card
-    [color]="'purple'"
-    [statName]="'Formateurs'"
-  ></app-card>
-  <app-card
-      [color]="'blue'"
-      [statName]="'Stagiaires'"
-    ></app-card>
-  <app-card
-      [color]="'green'"
-      [statName]="'Specialités'"
-    ></app-card>
-  <app-card
-      [color]="'red'"
-      [statName]="'Groupes'"
-    ></app-card>
+<div class="flex flex-row min-h-screen">
+  <app-side-bar></app-side-bar>
+  <div class="min-w-full -translate-x-56 -z-10">
+    <app-top-bar></app-top-bar>
+    <div *ngFor="let stagiaire of stagiaires">
+      {{stagiaire.email}}
+    </div>
+    <div class="grid grid-cols-4 gap-3">
+      <app-card
+        [color]="'purple'"
+        [statName]="'Formateurs'"
+      ></app-card>
+      <app-card
+        [color]="'blue'"
+        [statName]="'Stagiaires'"
+      ></app-card>
+      <app-card
+        [color]="'green'"
+        [statName]="'Specialités'"
+      ></app-card>
+      <app-card
+        [color]="'red'"
+        [statName]="'Groupes'"
+      ></app-card>
+    </div>
+    <router-outlet></router-outlet>
   </div>
-<router-outlet></router-outlet>
+</div>
