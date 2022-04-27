@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {GroupeService} from "../../services/groupe.service";
+import {Groupe} from "../../models/groupe";
+import {Stagiaire} from "../../models/stagiaire";
+import {HttpErrorResponse} from "@angular/common/http";
+import {SpecialiteService} from "../../services/specialite.service";
 
 @Component({
   selector: 'app-side-bar',
@@ -7,14 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
+  public groupes: Groupe[] = [];
   public isOpen = false;
 
-  constructor() { }
+  constructor(private groupeService: GroupeService,
+              private specialiteService: SpecialiteService) {
+    this.getGroupes();
+  }
 
   ngOnInit(): void {
   }
 
   toggleMenu() {
     this.isOpen = !this.isOpen;
+  }
+
+  private getGroupes() {
+    this.groupeService.getGroupes().subscribe(
+      (response: Groupe[]) => {
+        this.groupes = response;
+        this.getGroupeSpecialite();
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message)
+      }
+    )
+  }
+
+  private getGroupeSpecialite(){
+    for (const groupe of this.groupes) {
+      this.specialiteService.getSpecialite(groupe.specialite.id).subscribe({
+        next: (response)=>{
+          groupe.specialite = response;
+        }
+        }
+      );
+    }
   }
 }
