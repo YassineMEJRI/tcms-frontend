@@ -9,6 +9,8 @@ import { CardComponent } from './components/card/card.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { StagiairesComponent } from './components/stagiaires/stagiaires.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { CardsComponent } from './components/cards/cards.component';
     MenuItemComponent,
     CardComponent,
     CardsComponent,
+    DashboardComponent,
+    StagiairesComponent,
   ],
   imports: [
     BrowserModule,

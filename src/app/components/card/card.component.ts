@@ -70,4 +70,8 @@ export class CardComponent implements OnInit {
       }
     )
   }
+
+  onClick() {
+    console.log(this.statName);
+  }
 }

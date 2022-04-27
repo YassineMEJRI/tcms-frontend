@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {GroupeService} from "../../services/groupe.service";
 import {Groupe} from "../../models/groupe";
-import {Stagiaire} from "../../models/stagiaire";
 import {HttpErrorResponse} from "@angular/common/http";
 import {SpecialiteService} from "../../services/specialite.service";
 
@@ -13,7 +12,7 @@ import {SpecialiteService} from "../../services/specialite.service";
 export class SideBarComponent implements OnInit {
 
   public groupes: Groupe[] = [];
-  public isOpen = false;
+  @Input() isOpen: boolean = false;
 
   constructor(private groupeService: GroupeService,
               private specialiteService: SpecialiteService) {

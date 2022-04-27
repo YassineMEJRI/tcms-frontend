@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
+  sideBarIsOpen: boolean = false;
+  @Output() toggleSideBar = new  EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleMenu() {
+    this.sideBarIsOpen = !this.sideBarIsOpen;
+    this.toggleSideBar.emit(this.sideBarIsOpen);
+  }
 }
