@@ -11,7 +11,7 @@ import {delay, interval} from "rxjs";
 export class SpecialitesComponent implements OnInit {
 
   specialites: Specialite[] = [];
-  sucess: boolean = true;
+  sucess: boolean = false;
   constructor(private specialiteService: SpecialiteService) { }
 
   ngOnInit(): void {
