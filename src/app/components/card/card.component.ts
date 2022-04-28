@@ -16,7 +16,6 @@ export class CardComponent implements OnInit {
   stat: number = 0;
 
   constructor(private statsService: StatsService, private router: Router) {
-    console.log(router.config);
   }
 
   ngOnInit(): void {
