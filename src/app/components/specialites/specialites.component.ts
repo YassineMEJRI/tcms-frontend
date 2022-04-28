@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Specialite} from "../../models/specialite";
 import {SpecialiteService} from "../../services/specialite.service";
-import {interval} from "rxjs";
+import {delay, interval} from "rxjs";
 
 @Component({
   selector: 'app-specialites',
@@ -11,6 +11,7 @@ import {interval} from "rxjs";
 export class SpecialitesComponent implements OnInit {
 
   specialites: Specialite[] = [];
+  sucess: boolean = true;
   constructor(private specialiteService: SpecialiteService) { }
 
   ngOnInit(): void {
@@ -32,6 +33,7 @@ export class SpecialitesComponent implements OnInit {
     this.specialiteService.delete(id).subscribe({
       next: (response) => {
         console.log(response.status);
+        this.showSuccess();
         this.getAll();
       },
       error: (error) => {
@@ -40,5 +42,9 @@ export class SpecialitesComponent implements OnInit {
       }
     });
     this.getAll();
+  }
+
+  private showSuccess(): void{
+    this.sucess = true;
   }
 }

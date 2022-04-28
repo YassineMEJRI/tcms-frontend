@@ -39,4 +39,8 @@
     </table>
   </div>
   <button class="bg-violet-700 w-fit self-center p-4 text-white text-xl rounded-md">Ajouter une nouvelle spécialité</button>
+
+  <div *ngIf="sucess" class="p-4 fixed bottom-5 right-5 w-fit self-end text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+    <span class="font-medium">Supprimé!</span> Spécialité supprimée avec succés.
+  </div>
 </div>
