@@ -11,6 +11,9 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StagiairesComponent } from './components/stagiaires/stagiaires.component';
+import { FormateursComponent } from './components/formateurs/formateurs.component';
+import { GroupesComponent } from './components/groupes/groupes.component';
+import { SpecialitesComponent } from './components/specialites/specialites.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { StagiairesComponent } from './components/stagiaires/stagiaires.componen
     CardsComponent,
     DashboardComponent,
     StagiairesComponent,
+    FormateursComponent,
+    GroupesComponent,
+    SpecialitesComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,8 @@
   'bg-red-300': color === 'red',
   'bg-green-400': color === 'green',
   'bg-blue-400': color ==='blue'}">
-    <button class="text-xl font-bold text-white" (click)="onClick()">Afficher les details</button>
+    <a routerLink='{{this.link}}' routerLinkActive="active">
+      <button class="text-xl font-bold text-white">Afficher les details</button>
+    </a>
   </div>
 </div>
