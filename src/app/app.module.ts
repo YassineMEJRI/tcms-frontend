@@ -16,6 +16,7 @@ import { GroupesComponent } from './components/groupes/groupes.component';
 import { SpecialitesComponent } from './components/specialites/specialites.component';
 import { AjouterSpecialiteComponent } from './components/specialites/ajouter-specialite/ajouter-specialite.component';
 import { LoginComponent } from './components/login/login.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -34,11 +35,12 @@ import { LoginComponent } from './components/login/login.component';
     AjouterSpecialiteComponent,
     LoginComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

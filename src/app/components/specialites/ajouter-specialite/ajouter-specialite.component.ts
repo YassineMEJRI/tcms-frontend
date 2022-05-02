@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Specialite} from "../../../models/specialite";
+import {SpecialiteService} from "../../../services/specialite.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-ajouter-specialite',
@@ -6,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ajouter-specialite.component.css']
 })
 export class AjouterSpecialiteComponent implements OnInit {
+  public specialite: Specialite = new class implements Specialite {
+    id: number = 0;
+    titre: string = "";
+    description = "";
+  };
 
-  constructor() { }
+  constructor(private specialiteService: SpecialiteService) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    this.specialiteService.save(this.specialite).subscribe(
+      {
+        next: (response => {console.log("next" + JSON.stringify(response))}),
+        error: (error => {console.log("error" + error.message)})
+      }
+    );
+  }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Specialite} from "../models/specialite";
 import {Observable} from "rxjs";
 
@@ -9,6 +9,10 @@ import {Observable} from "rxjs";
 })
 export class SpecialiteService {
   private apiServerUrl = environment.apiBaseUrl;
+  private headers = new HttpHeaders({
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  });
 
 
   constructor(private  http: HttpClient) { }
@@ -23,5 +27,11 @@ export class SpecialiteService {
 
   public delete(id: number): Observable<any> {
     return this.http.delete(this.apiServerUrl + "/specialite/supprimer/" + id);
+  }
+
+  save(specialite: Specialite): Observable<Specialite>{
+    console.log(JSON.stringify(specialite));
+    return this.http.post<Specialite>(this.apiServerUrl + "/specialite/ajouter", JSON.stringify(specialite),
+      {headers: this.headers});
   }
 }
