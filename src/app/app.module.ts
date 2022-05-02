@@ -14,6 +14,8 @@ import { StagiairesComponent } from './components/stagiaires/stagiaires.componen
 import { FormateursComponent } from './components/formateurs/formateurs.component';
 import { GroupesComponent } from './components/groupes/groupes.component';
 import { SpecialitesComponent } from './components/specialites/specialites.component';
+import { AjouterSpecialiteComponent } from './components/specialites/ajouter-specialite/ajouter-specialite.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { SpecialitesComponent } from './components/specialites/specialites.compo
     FormateursComponent,
     GroupesComponent,
     SpecialitesComponent,
+    AjouterSpecialiteComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
