@@ -6,10 +6,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./menu-item.component.css']
 })
 export class MenuItemComponent implements OnInit {
-  @Input() link: string;
 
   constructor() {
-    this.link = "#";
   }
 
   ngOnInit(): void {

@@ -1,11 +1,7 @@
-<div class="flex flex-row min-h-screen">
-    <app-side-bar></app-side-bar>
-  <div class="min-w-full -translate-x-56 -z-10">
-    <app-top-bar></app-top-bar>
-    <div *ngFor="let stagiaire of stagiaires">
-      {{stagiaire.email}}
-    </div>
-    <app-cards></app-cards>
+<div class="flex min-h-screen">
+  <app-side-bar [isOpen]="sideBarIsOpen"></app-side-bar>
+  <div class="w-screen">
+    <app-top-bar (toggleSideBar)="toggleSideBar($event)"></app-top-bar>
+    <router-outlet></router-outlet>
   </div>
 </div>
-<router-outlet></router-outlet>

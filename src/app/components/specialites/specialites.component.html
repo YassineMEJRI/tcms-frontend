@@ -1,0 +1,46 @@
+<div class="flex flex-col">
+  <div class="overflow-x-auto shadow-md sm:rounded-lg my-10 mx-20">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Titre
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Description
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Modifier</span>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Supprimer</span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let spec of specialites"
+          class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+          {{spec.titre}}
+        </th>
+        <td class="px-6 py-4">
+          {{spec.description}}
+        </td>
+        <td class="px-6 py-4 text-right">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
+        </td>
+        <td class="px-6 py-4 text-right">
+          <button (click)="delete(spec.id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <button routerLink="/specialites/ajouter" class="bg-violet-700 w-fit self-center p-4 text-white text-xl rounded-md">Ajouter une nouvelle spécialité</button>
+
+  <div *ngIf="sucess" class="p-4 fixed bottom-5 right-5 w-fit self-end text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+    <span class="font-medium">Supprimé!</span> Spécialité supprimée avec succés.
+  </div>
+</div>
