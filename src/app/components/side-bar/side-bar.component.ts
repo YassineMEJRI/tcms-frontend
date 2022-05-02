@@ -28,7 +28,7 @@ export class SideBarComponent implements OnInit {
   }
 
   private getGroupes() {
-    this.groupeService.getGroupes().subscribe(
+    this.groupeService.getAll().subscribe(
       (response: Groupe[]) => {
         this.groupes = response;
         this.getGroupeSpecialite();
