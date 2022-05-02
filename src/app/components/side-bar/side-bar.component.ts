@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {GroupeService} from "../../services/groupe.service";
 import {Groupe} from "../../models/groupe";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -13,6 +13,7 @@ export class SideBarComponent implements OnInit {
 
   public groupes: Groupe[] = [];
   @Input() isOpen: boolean = false;
+  @Output() close = new EventEmitter<boolean>();
 
   constructor(private groupeService: GroupeService,
               private specialiteService: SpecialiteService) {
@@ -47,5 +48,10 @@ export class SideBarComponent implements OnInit {
         }
       );
     }
+  }
+
+  closeMenu() {
+    this.isOpen = false;
+    this.close.emit(true);
   }
 }

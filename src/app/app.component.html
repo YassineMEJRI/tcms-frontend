@@ -1,7 +1,7 @@
 <div class="flex min-h-screen">
-  <app-side-bar [isOpen]="sideBarIsOpen"></app-side-bar>
+  <app-side-bar [isOpen]="sideBarIsOpen" (close)="toggleSideBar(!$event)"></app-side-bar>
   <div class="w-screen">
-    <app-top-bar (toggleSideBar)="toggleSideBar($event)"></app-top-bar>
+    <app-top-bar [sideBarIsOpen]="sideBarIsOpen" (toggleSideBar)="toggleSideBar($event)"></app-top-bar>
     <router-outlet></router-outlet>
   </div>
 </div>
