@@ -34,14 +34,14 @@ export class SideBarComponent implements OnInit {
         this.getGroupeSpecialite();
       },
       (error: HttpErrorResponse) => {
-        console.log(error.message)
+        console.log(error.error)
       }
     )
   }
 
   private getGroupeSpecialite(){
     for (const groupe of this.groupes) {
-      this.specialiteService.getSpecialite(groupe.specialite.id).subscribe({
+        this.specialiteService.getSpecialite(groupe.specialite.id).subscribe({
         next: (response)=>{
           groupe.specialite = response;
         }

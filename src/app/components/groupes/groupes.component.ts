@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Specialite} from "../../models/specialite";
-import {SpecialiteService} from "../../services/specialite.service";
 import {Groupe} from "../../models/groupe";
 import {GroupeService} from "../../services/groupe.service";
 

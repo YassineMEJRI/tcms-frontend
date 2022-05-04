@@ -2,5 +2,5 @@
 [ngClass]="{'fixed top-0 left-0 min-h-full w-56 bg-blue-700 shadow shadow-black shadow-2xl': true,
 'hidden': !isOpen}">
   <app-menu-item routerLink="" (click)="closeMenu()">Acceuil</app-menu-item>
-  <app-menu-item *ngFor="let groupe of groupes" [routerLink]="'/groupe/'+groupe.id" (click)="closeMenu()">{{groupe.id}}: {{groupe.nom}} {{groupe.specialite.titre}}</app-menu-item>
+  <app-menu-item *ngFor="let groupe of groupes" [routerLink]="'/groupe/'+groupe.id" (click)="closeMenu()">{{groupe.id}}: {{groupe.nom}} {{groupe.specialite?.titre}}</app-menu-item>
 </div>

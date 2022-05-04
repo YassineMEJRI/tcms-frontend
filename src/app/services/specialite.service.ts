@@ -30,7 +30,6 @@ export class SpecialiteService {
   }
 
   save(specialite: Specialite): Observable<Specialite>{
-    console.log(JSON.stringify(specialite));
     return this.http.post<Specialite>(this.apiServerUrl + "/specialite/ajouter", JSON.stringify(specialite),
       {headers: this.headers});
   }

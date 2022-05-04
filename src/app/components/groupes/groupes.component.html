@@ -24,7 +24,7 @@
           {{groupe.nom}}
         </th>
         <td class="px-6 py-4">
-          {{groupe.specialite.titre}}
+          {{groupe.specialite?.titre}}
         </td>
         <td class="px-6 py-4 text-right">
           <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
@@ -38,9 +38,9 @@
       </tbody>
     </table>
   </div>
-  <button routerLink="/specialites/ajouter" class="bg-violet-700 w-fit self-center p-4 text-white text-xl rounded-md">Ajouter une nouvelle spécialité</button>
+  <button routerLink="/groupes/ajouter" class="bg-violet-700 w-fit self-center p-4 text-white text-xl rounded-md">Ajouter un nouveau groupe</button>
 
   <div *ngIf="sucess" class="p-4 fixed bottom-5 right-5 w-fit self-end text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-    <span class="font-medium">Supprimé!</span> Spécialité supprimée avec succés.
+    <span class="font-medium">Supprimé!</span> Groupe supprimée avec succés.
   </div>
 </div>
