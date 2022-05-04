@@ -12,7 +12,11 @@ export class StagiaireService {
 
   constructor(private http : HttpClient) { }
 
-  public getStagiaires(): Observable<Stagiaire[]>{
+  public getAll(): Observable<Stagiaire[]>{
     return this.http.get<Stagiaire[]>(this.apiServerUrl + "/stagiaires/tous")
+  }
+
+  public delete(id: number): Observable<any> {
+    return this.http.delete(this.apiServerUrl + "/stagiaires/supprimer/" + id);
   }
 }
