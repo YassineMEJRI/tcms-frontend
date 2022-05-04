@@ -8,6 +8,7 @@ import {SpecialitesComponent} from "./components/specialites/specialites.compone
 import {AjouterSpecialiteComponent} from "./components/specialites/ajouter-specialite/ajouter-specialite.component";
 import {LoginComponent} from "./components/login/login.component";
 import {AjouterGroupeComponent} from "./components/groupes/ajouter-groupe/ajouter-groupe.component";
+import {AjouterStagiaireComponent} from "./components/stagiaires/ajouter-stagiaire/ajouter-stagiaire.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'specialites', component: SpecialitesComponent},
   { path: 'specialites/ajouter', component: AjouterSpecialiteComponent},
   { path: 'groupes/ajouter', component: AjouterGroupeComponent},
+  { path: 'stagiaires/ajouter', component: AjouterStagiaireComponent},
   { path: 'login', component: LoginComponent},
 ];
 

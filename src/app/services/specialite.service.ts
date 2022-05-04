@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Specialite} from "../models/specialite";
 import {Observable} from "rxjs";
+import {Groupe} from "../models/groupe";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class SpecialiteService {
 
   public getAll(): Observable<Specialite[]>{
     return  this.http.get<Specialite[]>(this.apiServerUrl + "/specialite/tous");
+  }
+
+  public getGroupes(id: number): Observable<Groupe[]>{
+    return  this.http.get<Groupe[]>(this.apiServerUrl + "/specialite/" + id + "/groupes");
   }
 
   public delete(id: number): Observable<any> {

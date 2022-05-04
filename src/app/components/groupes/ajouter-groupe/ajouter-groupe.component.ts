@@ -15,7 +15,6 @@ export class AjouterGroupeComponent implements OnInit {
   public messageText: String = "";
   public messageType: String = "";
 
-  public error: boolean = false;
   public groupe: Groupe = new Groupe();
   public specialites: Specialite[] = []
 
