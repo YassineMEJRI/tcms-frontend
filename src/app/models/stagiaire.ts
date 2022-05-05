@@ -9,8 +9,8 @@ export class Stagiaire{
     email: string = "";
     num_tel: string = "";
     nom_parent: string = "";
-    num_parent: string = "";
-    adresse: string = "";
+    num_tel_parent: string = "";
+    adresse_postale: string = "";
     groupe: Groupe = new Groupe();
     specialite: Specialite = new Specialite();
     constructor() {
