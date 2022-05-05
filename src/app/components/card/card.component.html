@@ -3,8 +3,8 @@
 'bg-red-500': color === 'red',
 'bg-green-600': color === 'green',
 'bg-blue-500': color === 'blue'}">
-
   <div class="flex flex-col place-content-evenly items-center text-2xl text-white font-bold h-full">
+    <ng-content></ng-content>
     <span>{{statName}}</span>
     <span>{{stat}}</span>
   </div>
