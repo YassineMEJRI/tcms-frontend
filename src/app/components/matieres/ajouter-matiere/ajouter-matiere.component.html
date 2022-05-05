@@ -1,0 +1,59 @@
+<div class="flex flex-col">
+  <form (ngSubmit)="onSubmit(formMatiere)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 m-10" #formMatiere="ngForm">
+    <div class="mb-6">
+      <label for="nom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nom</label>
+      <input type="text" id="nom" name="nom" [required]="true"
+             [(ngModel)]="matiere.nom" #nom="ngModel" minlength="3"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="Nom de la matiere">
+      <div [hidden]="nom.valid || !nom.touched">
+        <span *ngIf="nom.errors?.['required']"  class="text-red-800">Le champs "Nom" est obligatoire</span>
+        <span *ngIf="nom.errors?.['minlength']"  class="text-red-800">La longueur du champs "Nom" doit dépasser 3 charactéres</span>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+      <input type="text" id="description" name="description"
+             [(ngModel)]="matiere.description" #description="ngModel"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="Description de la matiere">
+    </div>
+
+    <div class="mb-6">
+      <label for="coefficient" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Coefficient de la matiere</label>
+      <input type="number" id="coefficient" [(ngModel)]="matiere.coefficient" min="1" name="coefficient" #coefficient="ngModel" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" [value]="1" [required]="true" >
+      <div [hidden]="coefficient.valid || !coefficient.touched">
+        <span *ngIf="coefficient.errors?.['required']"  class="text-red-800">Le champs "Coefficient" est obligatoire</span>
+        <span *ngIf="coefficient.errors?.['min']"  class="text-red-800">Le champs "Coefficient" ne doit pas être inférieur à 1</span>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label for="nb_heures" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nombre d'heures / semaine</label>
+      <input type="number" id="nb_heures" [(ngModel)]="matiere.nb_heures" name="nb_heures" #nb_heures="ngModel" min="1" max="48" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" [required]="true" >
+        <div [hidden]="nb_heures.valid || !nb_heures.touched">
+        <span *ngIf="nb_heures.errors?.['required']"  class="text-red-800">Le champs "Nombre d'heures" est obligatoire</span>
+        <span *ngIf="nb_heures.errors?.['min']"  class="text-red-800">Le champs "Nombre d'heures" ne doit pas être inférieur à 1</span>
+        <span *ngIf="nb_heures.errors?.['max']"  class="text-red-800">Le champs "Nombre d'heures" ne doit pas être supérieur à 48</span>
+        </div>
+    </div>
+
+    <div class="mb-6">
+      <label for="specialites" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Selectionner la spécialité du nouveau groupe</label>
+      <select id="specialites" [(ngModel)]="matiere.specialite.id" name="specialite" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option *ngFor="let specialite of specialites" [value]="specialite.id">{{specialite.titre}}</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="!formMatiere.form.valid"
+            [ngClass]="{'col-start-1 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800': true,
+                        'bg-blue-700 hover:bg-blue-800': formMatiere.form.valid,
+                        'bg-gray-500': !formMatiere.form.valid}">
+      Confirmer
+    </button>
+  </form>
+  <div class="m-10">
+    <app-message [show]="showMessage" [message]="messageText" [type]="messageType"></app-message>
+  </div>
+</div>

@@ -38,6 +38,7 @@ export class MatieresComponent implements OnInit {
       next: (response) => {
         console.log(response);
         this.showMessageComponent("success", "Supprimé avec succés!");
+        this.getAll();
       },
       error: (error) =>{
         console.log(error);
