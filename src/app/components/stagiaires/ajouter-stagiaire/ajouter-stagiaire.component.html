@@ -1,0 +1,97 @@
+<div class="flex flex-col">
+  <form (ngSubmit)="onSubmit(formStagiaire)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 m-10" #formStagiaire="ngForm">
+    <div class="mb-6">
+      <label for="nom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nom</label>
+      <input type="text" id="nom" name="nom" [required]="true"
+             [(ngModel)]="stagiaire.nom" #nom="ngModel"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="Nom">
+      <span *ngIf="!nom.valid && nom.touched" class="text-red-800">Le champs "Nom" est obligatoire</span>
+    </div>
+    <div class="mb-6">
+      <label for="prenom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Prénom</label>
+      <input type="text" id="prenom" name="prenom" [required]="true"
+             [(ngModel)]="stagiaire.prenom" #prenom="ngModel"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="Prénom">
+      <span *ngIf="!prenom.valid && prenom.touched" class="text-red-800">Le champs "Prénom" est obligatoire</span>
+    </div>
+    <div class="mb-6">
+      <div class="flex flex-col">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sexe</label>
+        <div class="flex items-center mr-4">
+          <input id="homme" type="radio" [value]="0" name="sexe" [(ngModel)]="stagiaire.sexe"
+                 class="w-4 h-4 text-cyan-600 bg-gray-100 border-gray-300 focus:ring-cyan-600 focus:ring-2">
+          <label for="homme" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Homme</label>
+        </div>
+        <div class="flex items-center mr-4">
+          <input id="femme" type="radio" [value]="1" name="sexe" [(ngModel)]="stagiaire.sexe" [checked]="true"
+                 class="w-4 h-4 text-pink-600 bg-gray-100 border-gray-300 focus:ring-pink-600 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="femme" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Femme</label>
+        </div>
+      </div>
+    </div>
+    <div class="mb-6">
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+      <input type="email" id="email" name="email" [required]="true" [email]="true"
+             [(ngModel)]="stagiaire.email" #email="ngModel"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="email@email.com">
+      <span *ngIf="!email.valid && email.touched" class="text-red-800">Le champs "Email" est invalide</span>
+    </div>
+    <div class="mb-6">
+      <label for="tel" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">N° Téléphone</label>
+      <input type="phone" id="tel" name="tel" [required]="true"
+             [(ngModel)]="stagiaire.num_tel" #tel="ngModel"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="55123456">
+      <span *ngIf="!tel.valid && tel.touched" class="text-red-800">Le champs "N° de téléphone" est obligatoire</span>
+    </div>
+    <div class="mb-6">
+      <label for="adresse" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Adresse</label>
+      <input type="text" id="adresse" name="adresse" [required]="true"
+             [(ngModel)]="stagiaire.adresse_postale" #adresse="ngModel"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="n°, rue, cartier, état, Tunisie">
+      <span *ngIf="!adresse.valid && adresse.touched" class="text-red-800">Le champs "Adresse postale" est obligatoire</span>
+    </div>
+    <div class="mb-6">
+      <label for="parent" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nom complet du parent</label>
+      <input type="text" id="parent" name="parent" [required]="true"
+             [(ngModel)]="stagiaire.nom_parent" #parent="ngModel"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="Nom du parent">
+      <span *ngIf="!parent.valid && parent.touched" class="text-red-800">Le champs "Nom du parent" est obligatoire</span>
+    </div>
+    <div class="mb-6">
+      <label for="num-parent" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">N° Téléphone du parent</label>
+      <input type="text" id="num-parent" name="num-parent" [required]="true"
+             [(ngModel)]="stagiaire.num_tel_parent" #numparent="ngModel"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+             placeholder="55123456">
+      <span *ngIf="!numparent.valid && numparent.touched" class="text-red-800">Le champs "N° du parent" est obligatoire</span>
+    </div>
+    <div class="mb-6">
+      <label for="specialites" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Spécialite</label>
+      <select id="specialites" [(ngModel)]="stagiaire.specialite.id" name="specialite" (change)="getGroupesBySpecialite(stagiaire.specialite.id)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option *ngFor="let specialite of specialites" [value]="specialite.id">{{specialite.titre}}</option>
+      </select>
+    </div>
+    <div class="mb-6">
+      <label for="groupes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Groupe</label>
+      <select id="groupes" [(ngModel)]="stagiaire.groupe.id" name="groupe" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="!formStagiaire.valid"
+            [ngClass]="{'sm:col-span-2 justify-self-start text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800': true,
+                        'bg-blue-700 hover:bg-blue-800': formStagiaire.valid,
+                        'bg-gray-500': !formStagiaire.valid}">
+      Confirmer
+    </button>
+  </form>
+  <div class="m-10">
+    <app-message [show]="showMessage" [message]="messageText" [type]="messageType"></app-message>
+  </div>
+</div>

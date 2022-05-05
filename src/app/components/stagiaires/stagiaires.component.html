@@ -1,1 +1,93 @@
-<p>stagiaires works!</p>
+<div class="flex flex-col">
+  <div class="overflow-x-auto shadow-md sm:rounded-lg my-10 mx-20">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Nom
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Prenom
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Sexe
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Email
+        </th>
+        <th scope="col" class="px-6 py-3">
+          N° Tél
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Adresse
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Nom Parent
+        </th>
+        <th scope="col" class="px-6 py-3">
+          N° Parent
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Spécialité
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Groupe
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Modifier</span>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Supprimer</span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let stag of stagiaires"
+          class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+          {{stag.nom}}
+        </th>
+        <td class="px-6 py-4">
+          {{stag.prenom}}
+        </td>
+        <td class="px-6 py-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" [attr.fill]="stag.sexe?'pink':'cyan'" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+        </td>
+        <td class="px-6 py-4">
+          {{stag.email}}
+        </td>
+        <td class="px-6 py-4">
+          {{stag.num_tel}}
+        </td>
+        <td class="px-6 py-4">
+          {{stag.adresse_postale}}
+        </td>
+        <td class="px-6 py-4">
+          {{stag.nom_parent}}
+        </td>
+        <td class="px-6 py-4">
+          {{stag.num_tel_parent}}
+        </td>
+        <td class="px-6 py-4">
+          {{stag.specialite.titre}}
+        </td>
+        <td class="px-6 py-4">
+          {{stag.groupe.nom}}
+        </td>
+        <td class="px-6 py-4 text-right">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
+        </td>
+        <td class="px-6 py-4 text-right">
+          <button (click)="delete(stag.id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <button routerLink="/stagiaires/ajouter" class="bg-violet-700 w-fit self-center p-4 text-white text-xl rounded-md">Ajouter un stagiaire</button>
+</div>

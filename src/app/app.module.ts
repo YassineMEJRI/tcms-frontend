@@ -17,6 +17,9 @@ import { SpecialitesComponent } from './components/specialites/specialites.compo
 import { AjouterSpecialiteComponent } from './components/specialites/ajouter-specialite/ajouter-specialite.component';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from "@angular/forms";
+import { AjouterGroupeComponent } from './components/groupes/ajouter-groupe/ajouter-groupe.component';
+import { MessageComponent } from './components/message/message.component';
+import { AjouterStagiaireComponent } from './components/stagiaires/ajouter-stagiaire/ajouter-stagiaire.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import {FormsModule} from "@angular/forms";
     SpecialitesComponent,
     AjouterSpecialiteComponent,
     LoginComponent,
+    AjouterGroupeComponent,
+    MessageComponent,
+    AjouterStagiaireComponent,
   ],
     imports: [
         BrowserModule,

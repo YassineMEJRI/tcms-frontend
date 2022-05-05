@@ -1,5 +1,7 @@
-export interface Specialite {
-  id: number;
-  titre: string;
-  description: string;
+export class Specialite {
+  id: number = 0;
+  titre: string = "";
+  description: string = "";
+  constructor() {
+  }
 }

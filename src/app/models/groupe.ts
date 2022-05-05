@@ -1,7 +1,11 @@
 import {Specialite} from "./specialite";
 
-export interface Groupe {
-  id: number;
-  nom: string;
-  specialite: Specialite;
+export class Groupe {
+  id: number = 0;
+  nom: string = "";
+  specialite= new Specialite()
+  constructor() {
+  }
+
+
 }

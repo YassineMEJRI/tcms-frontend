@@ -9,6 +9,8 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./ajouter-specialite.component.css']
 })
 export class AjouterSpecialiteComponent implements OnInit {
+  sucess: boolean = false;
+
   public specialite: Specialite = new class implements Specialite {
     id: number = 0;
     titre: string = "";
@@ -23,9 +25,13 @@ export class AjouterSpecialiteComponent implements OnInit {
   onSubmit() {
     this.specialiteService.save(this.specialite).subscribe(
       {
-        next: (response => {console.log("next" + JSON.stringify(response))}),
+        next: (response => {this.showSuccess()}),
         error: (error => {console.log("error" + error.message)})
       }
     );
+  }
+
+  private showSuccess(): void{
+    this.sucess = true;
   }
 }
