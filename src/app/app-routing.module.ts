@@ -9,6 +9,7 @@ import {AjouterSpecialiteComponent} from "./components/specialites/ajouter-speci
 import {LoginComponent} from "./components/login/login.component";
 import {AjouterGroupeComponent} from "./components/groupes/ajouter-groupe/ajouter-groupe.component";
 import {AjouterStagiaireComponent} from "./components/stagiaires/ajouter-stagiaire/ajouter-stagiaire.component";
+import {MatieresComponent} from "./components/matieres/matieres.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'formateurs', component: FormateursComponent},
   { path: 'groupes', component: GroupesComponent},
   { path: 'specialites', component: SpecialitesComponent},
+  { path: 'matieres', component: MatieresComponent},
   { path: 'specialites/ajouter', component: AjouterSpecialiteComponent},
   { path: 'groupes/ajouter', component: AjouterGroupeComponent},
   { path: 'stagiaires/ajouter', component: AjouterStagiaireComponent},

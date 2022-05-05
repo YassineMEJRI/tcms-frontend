@@ -20,6 +20,7 @@ import {FormsModule} from "@angular/forms";
 import { AjouterGroupeComponent } from './components/groupes/ajouter-groupe/ajouter-groupe.component';
 import { MessageComponent } from './components/message/message.component';
 import { AjouterStagiaireComponent } from './components/stagiaires/ajouter-stagiaire/ajouter-stagiaire.component';
+import { MatieresComponent } from './components/matieres/matieres.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AjouterStagiaireComponent } from './components/stagiaires/ajouter-stagi
     AjouterGroupeComponent,
     MessageComponent,
     AjouterStagiaireComponent,
+    MatieresComponent,
   ],
     imports: [
         BrowserModule,
