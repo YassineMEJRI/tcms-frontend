@@ -54,11 +54,11 @@
     </div>
     <div class="mb-6">
       <label for="tel" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">N° Téléphone</label>
-      <input type="phone" id="tel" name="tel" [required]="true"
-             [(ngModel)]="formateur.num_tel" #tel="ngModel"
+      <input type="text" id="tel" name="tel" [required]="true"
+             [(ngModel)]="formateur.num_tel" #tel="ngModel" pattern="^[0-9]{8}"
              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
              placeholder="55123456">
-      <span *ngIf="!tel.valid && tel.touched" class="text-red-800">Le champs "N° de téléphone" est obligatoire</span>
+      <span *ngIf="!tel.valid && tel.touched" class="text-red-800">Le champs "N° de téléphone" est invalide</span>
     </div>
     <div class="mb-6">
       <label for="profession" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Profession</label>
