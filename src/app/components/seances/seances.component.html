@@ -1,0 +1,52 @@
+<div class="flex flex-col">
+  <div class="overflow-x-auto shadow-md sm:rounded-lg my-10 mx-20">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Formateur
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Matiere
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Groupe
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Modifier</span>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Supprimer</span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let seance of seances"
+          class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+          {{seance.formateur.nom}} {{seance.formateur.prenom}}
+        </th>
+        <td class="px-6 py-4">
+          {{seance.matiere.nom}}
+        </td>
+        <td class="px-6 py-4">
+          {{seance.groupe.specialite.titre}}: {{seance.groupe.nom}}
+        </td>
+        <td class="px-6 py-4 text-right">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
+        </td>
+        <td class="px-6 py-4 text-right">
+          <button (click)="delete(seance.id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <button routerLink="/seances/ajouter" class="bg-violet-700 w-fit self-center p-4 text-white text-xl rounded-md">Ajouter une nouvelle seance</button>
+
+  <div class="m-10">
+    <app-message [show]="showMessage" [message]="messageText" [type]="messageType"></app-message>
+  </div>
+</div>

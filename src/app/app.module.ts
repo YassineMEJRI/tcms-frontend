@@ -23,6 +23,8 @@ import { AjouterStagiaireComponent } from './components/stagiaires/ajouter-stagi
 import { MatieresComponent } from './components/matieres/matieres.component';
 import { AjouterMatiereComponent } from './components/matieres/ajouter-matiere/ajouter-matiere.component';
 import { AjouterFormateurComponent } from './components/formateurs/ajouter-formateur/ajouter-formateur.component';
+import { SeancesComponent } from './components/seances/seances.component';
+import { AjouterSeanceComponent } from './components/seances/ajouter-seance/ajouter-seance.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { AjouterFormateurComponent } from './components/formateurs/ajouter-forma
     MatieresComponent,
     AjouterMatiereComponent,
     AjouterFormateurComponent,
+    SeancesComponent,
+    AjouterSeanceComponent,
   ],
     imports: [
         BrowserModule,
