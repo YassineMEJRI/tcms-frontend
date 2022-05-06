@@ -11,6 +11,7 @@ import {AjouterGroupeComponent} from "./components/groupes/ajouter-groupe/ajoute
 import {AjouterStagiaireComponent} from "./components/stagiaires/ajouter-stagiaire/ajouter-stagiaire.component";
 import {MatieresComponent} from "./components/matieres/matieres.component";
 import {AjouterMatiereComponent} from "./components/matieres/ajouter-matiere/ajouter-matiere.component";
+import {AjouterFormateurComponent} from "./components/formateurs/ajouter-formateur/ajouter-formateur.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'groupes/ajouter', component: AjouterGroupeComponent},
   { path: 'stagiaires/ajouter', component: AjouterStagiaireComponent},
   { path: 'matieres/ajouter', component: AjouterMatiereComponent},
+  { path: 'formateurs/ajouter', component: AjouterFormateurComponent},
   { path: 'login', component: LoginComponent},
 ];
 
