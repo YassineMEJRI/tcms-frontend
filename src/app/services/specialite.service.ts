@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Specialite} from "../models/specialite";
 import {Observable} from "rxjs";
 import {Groupe} from "../models/groupe";
+import {Matiere} from "../models/matiere";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,10 @@ export class SpecialiteService {
 
   public getGroupes(id: number): Observable<Groupe[]>{
     return  this.http.get<Groupe[]>(this.apiServerUrl + "/specialite/" + id + "/groupes");
+  }
+
+  public getMatieres(id: number): Observable<Matiere[]>{
+    return  this.http.get<Matiere[]>(this.apiServerUrl + "/specialite/" + id + "/matieres");
   }
 
   public delete(id: number): Observable<any> {
