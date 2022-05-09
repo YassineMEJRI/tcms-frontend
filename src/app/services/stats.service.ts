@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {AuthService} from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,13 @@ import {environment} from "../../environments/environment";
 export class StatsService {
   private apiServerUrl = environment.apiBaseUrl;
 
+  private token: string = "";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loginService: AuthService) {
+  }
 
   public getStagiaresStat(): Observable<number>{
+    this.getToken();
     return this.http.get<number>(this.apiServerUrl + "/stagiaires/stat")
   }
 
@@ -27,4 +31,9 @@ export class StatsService {
   public getSpecialitesStat(): Observable<number>{
     return this.http.get<number>(this.apiServerUrl + "/specialite/stat")
   }
+
+  private getToken(): string{
+    return this.loginService.getAccessToken()?.access_token?? ""
+  }
+
 }

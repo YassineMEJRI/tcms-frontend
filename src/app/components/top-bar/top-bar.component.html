@@ -10,5 +10,7 @@
     </svg>
   </button>
   <a routerLink="/" id="title" class="text-white sm:text-2xl text-sm font-bold p-2">Centre de formation 9 Avril</a>
-  <button routerLink="/login" class="px-5 py-2 m-5 bg-white rounded-full shadow-md">Login</button>
+  <button *ngIf="!(isLoggedIn | async)" routerLink="/login" class="px-5 py-2 m-5 bg-white rounded-full shadow-md">Login</button>
+  <button *ngIf="isLoggedIn | async" (click)="logout()" class="px-5 py-2 m-5 bg-white rounded-full shadow-md">Déconnecter</button>
 </nav>
+

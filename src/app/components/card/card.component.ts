@@ -71,11 +71,13 @@ export class CardComponent implements OnInit {
 
   private getSpecialitesStat(): void {
     this.statsService.getSpecialitesStat().subscribe(
-      (response: number) => {
-        this.stat = response;
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message)
+      {
+        next: (response: number) => {
+          this.stat = response;
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error.status + " " + JSON.stringify(error))
+        }
       }
     )
   }
