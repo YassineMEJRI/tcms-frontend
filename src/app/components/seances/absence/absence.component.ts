@@ -6,6 +6,7 @@ import {StagiaireService} from "../../../services/stagiaire.service";
 import {Stagiaire} from "../../../models/stagiaire";
 import {StagiairePresence} from "../../../models/stagiairePresence";
 import {Presence} from "../../../models/presence";
+import {PresenceService} from "../../../services/presence.service";
 
 @Component({
   selector: 'app-absence',
@@ -19,7 +20,10 @@ export class AbsenceComponent implements OnInit {
   public listePresence: StagiairePresence[] = [];
   public date = new Date();
 
-  constructor(private seanceService: SeanceService, private activatedRoute: ActivatedRoute, private stagiaireService: StagiaireService) { }
+  constructor(private seanceService: SeanceService,
+              private activatedRoute: ActivatedRoute,
+              private stagiaireService: StagiaireService,
+              private presenceService: PresenceService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(routeParams => {
@@ -66,6 +70,7 @@ export class AbsenceComponent implements OnInit {
 
   enregistrer() {
     let presence = new Presence(this.seance, this.listePresence, this.date);
-    console.log(presence);
+    console.log(JSON.stringify(presence));
+    this.presenceService.savePresenceList(presence.listePresence, this.seance.id).subscribe();
   }
 }
