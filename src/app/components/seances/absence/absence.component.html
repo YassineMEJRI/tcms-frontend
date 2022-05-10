@@ -1,0 +1,37 @@
+<div class="flex flex-col">
+  {{date}}
+  <button class="font-bold border-black border-2 p-2" (click)="marquerPresence()">Marquer la presence</button>
+  <div *ngIf="listePresence.length!=0" class="overflow-x-auto shadow-md sm:rounded-lg my-10 mx-20">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Nom
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Prenom
+        </th>
+        <th scope="col" class="px-6 py-3">
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let stag of listePresence"
+          class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+          {{stag.nom}}
+        </th>
+        <td class="px-6 py-4">
+          {{stag.prenom}}
+        </td>
+        <td class="px-6 py-4">
+          <button [disabled]="!stag.present" *ngIf="stag.present" (click)="togglePresent(stag.id, false)" class="text-red-800 rounded-md border-2 border-red-700 p-2 hover:bg-red-300">Marquer Absent</button>
+          <button [disabled]="stag.present" *ngIf="!stag.present" (click)="togglePresent(stag.id, true)" class="text-green-800 rounded-md border-2 border-green-700 p-2 hover:bg-green-300">Marquer Present</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <button *ngIf="listePresence.length!=0" class="font-bold border-black border-2 p-2" (click)="enregistrer()">Enregistrer</button>
+</div>
+

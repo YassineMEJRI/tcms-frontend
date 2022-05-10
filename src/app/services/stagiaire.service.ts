@@ -28,4 +28,12 @@ export class StagiaireService {
   public delete(id: number): Observable<any> {
     return this.http.delete(this.apiServerUrl + "/stagiaires/supprimer/" + id);
   }
+
+  public getByGroupe(idGroupe: number): Observable<Stagiaire[]>{
+    return this.http.get<Stagiaire[]>(this.apiServerUrl + "/groupe/" + idGroupe + "/stagiaires");
+  }
+
+  public getBySeance(idSeance: number): Observable<Stagiaire[]>{
+    return this.http.get<Stagiaire[]>(this.apiServerUrl + "/seance/" + idSeance + "/stagiaires");
+  }
 }
