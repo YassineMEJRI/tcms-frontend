@@ -53,4 +53,8 @@ export class AuthService {
   public isLoggedInAsObservable(){
     return this.isLoggedIn$.asObservable();
   }
+
+  public getAuthority(): Observable<string>{
+    return this.http.get<string>(this.apiServerUrl + "/auth/userrole");
+  }
 }
