@@ -27,6 +27,7 @@ import { SeancesComponent } from './components/seances/seances.component';
 import { AjouterSeanceComponent } from './components/seances/ajouter-seance/ajouter-seance.component';
 import {AuthInterceptor} from "./services/AuthInterceptor";
 import { AbsenceComponent } from './components/seances/absence/absence.component';
+import { TypeExamComponent } from './components/modals/type-exam/type-exam.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AbsenceComponent } from './components/seances/absence/absence.component
     SeancesComponent,
     AjouterSeanceComponent,
     AbsenceComponent,
+    TypeExamComponent,
   ],
     imports: [
         BrowserModule,

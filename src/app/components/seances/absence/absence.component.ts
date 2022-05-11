@@ -7,6 +7,8 @@ import {Stagiaire} from "../../../models/stagiaire";
 import {StagiairePresence} from "../../../models/stagiairePresence";
 import {PresenceService} from "../../../services/presence.service";
 import {StagiaireAbsence} from "../../../models/stagiaireAbsence";
+import {StagiaireNote} from "../../../models/stagiaireNote";
+import {NotesService} from "../../../services/notes.service";
 
 @Component({
   selector: 'app-absence',
@@ -23,12 +25,18 @@ export class AbsenceComponent implements OnInit {
   public listePresence: StagiairePresence[] = [];
   public date = new Date().toLocaleDateString();
 
+  public listeNotes: StagiaireNote[] = [];
+
+  public showChoisirTypeModal = false;
+  public typeExam: string = "";
+
   public listeNbAbsences = new Map<number, number>();
 
   constructor(private seanceService: SeanceService,
               private activatedRoute: ActivatedRoute,
               private stagiaireService: StagiaireService,
               private presenceService: PresenceService,
+              private notesService: NotesService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -36,6 +44,7 @@ export class AbsenceComponent implements OnInit {
       const seanceId = routeParams['seanceId'];
       this.stagiaires= [];
       this.listePresence= [];
+      this.listeNotes = [];
 
     this.listeNbAbsences = new Map<number, number>();
       this.getSeance(seanceId);
@@ -73,6 +82,10 @@ export class AbsenceComponent implements OnInit {
     })
   }
 
+  ajouterNotes(){
+    this.showChoisirTypeModal = true;
+  }
+
   togglePresent(id: number, state: boolean) {
     this.listePresence.forEach(s => {
       if(s.id == id)
@@ -80,7 +93,7 @@ export class AbsenceComponent implements OnInit {
     })
   }
 
-  enregistrer() {
+  enregistrerPresence() {
     console.log(JSON.stringify(this.listePresence));
     this.presenceService.savePresenceList(this.listePresence, this.seance.id).subscribe({
       next:(()=>{
@@ -91,6 +104,13 @@ export class AbsenceComponent implements OnInit {
         this.showMessageComponent("error", "Une erreur c'est produite.")
       })
     });
+  }
+
+  enregistrerNotes() {
+    console.log(JSON.stringify(this.listeNotes));
+    this.notesService.saveListeNotes(this.seance.id, this.listeNotes, this.typeExam).subscribe({
+
+    })
   }
 
   private getNbAbsences(seanceId: number) {
@@ -114,5 +134,13 @@ export class AbsenceComponent implements OnInit {
   hideModal() {
     this.showMessage = false;
     this.router.navigate(['']);
+  }
+
+  setTypeExamen($event: string) {
+    this.typeExam = $event;
+    this.listeNotes = [];
+    this.stagiaires.forEach(stagiaire => {
+      this.listeNotes.push(new StagiaireNote(stagiaire.id, stagiaire.nom, stagiaire.prenom, 0))
+    })
   }
 }
