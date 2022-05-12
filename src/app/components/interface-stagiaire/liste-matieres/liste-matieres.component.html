@@ -1,0 +1,12 @@
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 m-5">
+  <div *ngFor="let mat of listeMatieres">
+    <a
+      [ngClass]="{'block p-6 max-w-sm rounded-lg border border-gray-200 shadow-md':true,
+      'bg-red-300 hover:bg-red-400':mat.nb_absences>=3,
+      'bg-white hover:bg-gray-100':mat.nb_absences<3}">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{mat.matiere_nom}}</h5>
+      <p class="font-normal text-gray-700 dark:text-gray-400">Votre absences: {{mat.nb_absences}}</p>
+      <p class="font-normal text-gray-700 dark:text-gray-400">Votre moyenne: {{mat.note}}</p>
+    </a>
+  </div>
+</div>

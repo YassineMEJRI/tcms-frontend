@@ -15,9 +15,11 @@ import {AjouterFormateurComponent} from "./components/formateurs/ajouter-formate
 import {SeancesComponent} from "./components/seances/seances.component";
 import {AjouterSeanceComponent} from "./components/seances/ajouter-seance/ajouter-seance.component";
 import {AbsenceComponent} from "./components/seances/absence/absence.component";
+import {ListeMatieresComponent} from "./components/interface-stagiaire/liste-matieres/liste-matieres.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'suivi', component: ListeMatieresComponent },
   { path: 'stagiaires', component: StagiairesComponent},
   { path: 'formateurs', component: FormateursComponent},
   { path: 'groupes', component: GroupesComponent},
