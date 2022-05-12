@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {Tokens} from "../models/tokens";
+import {Authority} from "../models/Authority";
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +55,7 @@ export class AuthService {
     return this.isLoggedIn$.asObservable();
   }
 
-  public getAuthority(): Observable<string>{
-    return this.http.get<string>(this.apiServerUrl + "/auth/userrole");
+  public getAuthority(): Observable<Authority>{
+    return this.http.get<Authority>(this.apiServerUrl + "/auth/userrole");
   }
 }
