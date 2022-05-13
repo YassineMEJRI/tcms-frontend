@@ -14,9 +14,12 @@ import {AjouterMatiereComponent} from "./components/matieres/ajouter-matiere/ajo
 import {AjouterFormateurComponent} from "./components/formateurs/ajouter-formateur/ajouter-formateur.component";
 import {SeancesComponent} from "./components/seances/seances.component";
 import {AjouterSeanceComponent} from "./components/seances/ajouter-seance/ajouter-seance.component";
+import {AbsenceComponent} from "./components/seances/absence/absence.component";
+import {ListeMatieresComponent} from "./components/interface-stagiaire/liste-matieres/liste-matieres.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'suivi', component: ListeMatieresComponent },
   { path: 'stagiaires', component: StagiairesComponent},
   { path: 'formateurs', component: FormateursComponent},
   { path: 'groupes', component: GroupesComponent},
@@ -29,6 +32,7 @@ const routes: Routes = [
   { path: 'matieres/ajouter', component: AjouterMatiereComponent},
   { path: 'formateurs/ajouter', component: AjouterFormateurComponent},
   { path: 'seances/ajouter', component: AjouterSeanceComponent},
+  { path: 'seance/:seanceId', component: AbsenceComponent},
   { path: 'login', component: LoginComponent},
 ];
 

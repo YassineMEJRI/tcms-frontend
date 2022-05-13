@@ -26,9 +26,16 @@ export class SeanceService {
     return this.http.delete(this.apiServerUrl + "/seance/supprimer/" + id);
   }
 
-  save(seance: Seance): Observable<Seance>{
+  public save(seance: Seance): Observable<Seance>{
     return this.http.post<Seance>(this.apiServerUrl + "/seance/ajouter", JSON.stringify(seance),
       {headers: this.headers});
   }
 
+  public getSeancesFormateurAuthentifie(): Observable<Seance[]> {
+    return this.http.get<Seance[]>(this.apiServerUrl + "/formateur/seances");
+  }
+
+  public getSeance(id: number): Observable<Seance>{
+    return this.http.get<Seance>(this.apiServerUrl + "/seance/" + id);
+  }
 }
