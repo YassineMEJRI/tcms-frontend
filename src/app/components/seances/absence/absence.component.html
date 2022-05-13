@@ -1,5 +1,5 @@
 <div class="flex flex-col">
-  <div class="grid grid-cols-2 bg-cyan-300 rounded-md w-fit p-5 m-5 font-bold">
+  <div class="grid grid-cols-2 self-center text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center mr-2 mb-2 w-fit p-5 m-5 font-bold">
     <label for="date">Il est le:</label>
     <span id="date">{{date}}</span>
     <label for="matiere">Matiere:</label>
@@ -10,7 +10,8 @@
     <span id="groupe">{{seance.groupe.nom}}</span>
   </div>
 <!--  Liste des Presence -->
-  <button class="font-bold border-black border-2 p-2" (click)="marquerPresence()">Marquer la presence</button>
+  <button class="text-white mt-10 self-center w-56 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          (click)="marquerPresence()">Marquer la presence</button>
   <div *ngIf="listePresence.length!=0" class="overflow-x-auto shadow-md sm:rounded-lg my-10 mx-20">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -42,17 +43,18 @@
           {{listeNbAbsences.get(stag.id)??0}}
         </td>
         <td class="px-6 py-4">
-          <button [disabled]="stag.absent" *ngIf="!stag.absent" (click)="togglePresent(stag.id, true)" class="text-red-800 rounded-md border-2 border-red-700 p-2 hover:bg-red-300">Marquer Absent</button>
-          <button [disabled]="!stag.absent" *ngIf="stag.absent" (click)="togglePresent(stag.id, false)" class="text-green-800 rounded-md border-2 border-green-700 p-2 hover:bg-green-300">Marquer Present</button>
+          <button [disabled]="stag.absent" *ngIf="!stag.absent" (click)="togglePresent(stag.id, true)" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">Marquer Absent</button>
+          <button [disabled]="!stag.absent" *ngIf="stag.absent" (click)="togglePresent(stag.id, false)" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">Marquer Present</button>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-  <button *ngIf="listePresence.length!=0" class="font-bold border-black border-2 p-2" (click)="enregistrerPresence()">Enregistrer</button>
+  <button *ngIf="listePresence.length!=0" class="text-gray-900 mb-20 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" (click)="enregistrerPresence()">Enregistrer</button>
 
 <!--  Liste de notes -->
-  <button class="font-bold border-black border-2 p-2" (click)="ajouterNotes()">Ajouter des notes</button>
+  <button class="text-white self-center w-56 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          (click)="ajouterNotes()">Ajouter des notes</button>
   <div *ngIf="listeNotes.length!=0" class="overflow-x-auto shadow-md sm:rounded-lg my-10 mx-20">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -84,7 +86,7 @@
       </tbody>
     </table>
   </div>
-  <button *ngIf="listeNotes.length!=0" class="font-bold border-black border-2 p-2" (click)="enregistrerNotes()">Enregistrer</button>
+  <button *ngIf="listeNotes.length!=0" class="text-gray-900 mb-20 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" (click)="enregistrerNotes()">Enregistrer</button>
 
   <div class="m-10">
     <app-message [show]="showMessage" [message]="messageText" [type]="messageType"></app-message>

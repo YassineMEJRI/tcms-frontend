@@ -1,8 +1,8 @@
 <div [ngClass]="{'flex flex-col justify-between m-10 w-56 h-48 rounded-2xl': true,
-'bg-fuchsia-800': color === 'purple',
-'bg-red-500': color === 'red',
-'bg-green-600': color === 'green',
-'bg-blue-500': color === 'blue'}">
+'bg-[#441A9E]': color === 'purple',
+'bg-[#DB3927]': color === 'red',
+'bg-[#3BAD1B]': color === 'green',
+'bg-[#0771C1]': color === 'blue'}">
   <div class="flex flex-col place-content-evenly items-center text-2xl text-white font-bold h-full">
     <ng-content></ng-content>
     <span>{{statName}}</span>
@@ -10,10 +10,10 @@
   </div>
 
   <button routerLink='{{this.link}}' [ngClass]="{'h-14 hover:scale-105 rounded-b-2xl flex items-center justify-center text-xl font-bold text-white': true,
-  'bg-fuchsia-500': color === 'purple',
-  'bg-red-300': color === 'red',
-  'bg-green-400': color === 'green',
-  'bg-blue-400': color ==='blue'}">
+  'bg-[#5B3AA3]': color === 'purple',
+  'bg-[#DE6B5E]': color === 'red',
+  'bg-[#56B23B]': color === 'green',
+  'bg-[#3B8DCB]': color ==='blue'}">
     Afficher les details
   </button>
 </div>
