@@ -7,6 +7,8 @@ import {Seance} from "../../models/seance";
 import {AuthService} from "../../services/auth.service";
 import {Observable, Subject} from "rxjs";
 import {Authority} from "../../models/Authority";
+import {UserstagiaireService} from "../../services/userstagiaire.service";
+import {Stagiaire} from "../../models/stagiaire";
 
 @Component({
   selector: 'app-side-bar',
@@ -24,9 +26,11 @@ export class SideBarComponent implements OnInit {
 
   isLoggedIn: Observable<boolean> = new Observable<boolean>();
 
+
   constructor(private groupeService: GroupeService,
               private seanceService: SeanceService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private userstagiaireService: UserstagiaireService) {
     this.isLoggedIn = this.authService.isLoggedInAsObservable();
   }
 
@@ -49,6 +53,7 @@ export class SideBarComponent implements OnInit {
         this.getSeances();
     }
     })
+
   }
 
   private getGroupes() {
@@ -90,5 +95,17 @@ export class SideBarComponent implements OnInit {
       }
     })
   }
+
+  // //TODO FIX MAKE PERSON
+  // private getStagiaire(){
+  //   this.userstagiaireService.getAuthentificatedStagaire().subscribe({
+  //     next:(response: Stagiaire) => {
+  //       this.stagiaire = response;
+  //     },
+  //     error:(err) => {
+  //       console.log(err)
+  //     }
+  //   })
+  // }
 
 }
