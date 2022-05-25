@@ -109,7 +109,13 @@ export class AbsenceComponent implements OnInit {
   enregistrerNotes() {
     console.log(JSON.stringify(this.listeNotes));
     this.notesService.saveListeNotes(this.seance.id, this.listeNotes, this.typeExam).subscribe({
-
+      next:(()=>{
+        this.showMessageComponent("success", "Liste de notes eregistrée avec succés.");
+      }),
+      error:((err)=>{
+        console.log(JSON.stringify(err));
+        this.showMessageComponent("error", "Une erreur c'est produite.")
+      })
     })
   }
 

@@ -12,7 +12,7 @@
 <!--  Liste des Presence -->
   <button class="text-white mt-10 self-center w-56 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           (click)="marquerPresence()">Marquer la presence</button>
-  <div *ngIf="listePresence.length!=0" class="overflow-x-auto shadow-md sm:rounded-lg my-10 mx-20">
+  <div *ngIf="listePresence.length!=0" class="overflow-x-auto shadow-md sm:rounded-lg my-10 md:mx-20 mx-5">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
@@ -50,7 +50,9 @@
       </tbody>
     </table>
   </div>
-  <button *ngIf="listePresence.length!=0" class="text-gray-900 mb-20 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" (click)="enregistrerPresence()">Enregistrer</button>
+  <button *ngIf="listePresence.length!=0"
+          class="text-white self-center w-56 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          (click)="enregistrerPresence()">Enregistrer</button>
 
 <!--  Liste de notes -->
   <button class="text-white self-center w-56 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
@@ -80,13 +82,15 @@
           {{noteStag.prenom}}
         </td>
         <td class="px-6 py-4 justify-center">
-          <input type="number" min="0" max="20" [(ngModel)]="noteStag.note"/>
+          <input type="number" min="0" max="20" [(ngModel)]="noteStag.note" #/>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-  <button *ngIf="listeNotes.length!=0" class="text-gray-900 mb-20 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" (click)="enregistrerNotes()">Enregistrer</button>
+  <button *ngIf="listeNotes.length!=0"
+          class="text-white self-center w-56 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          (click)="enregistrerNotes()">Enregistrer</button>
 
   <div class="m-10">
     <app-message [show]="showMessage" [message]="messageText" [type]="messageType"></app-message>
