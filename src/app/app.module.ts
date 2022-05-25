@@ -29,6 +29,7 @@ import {AuthInterceptor} from "./services/AuthInterceptor";
 import { AbsenceComponent } from './components/seances/absence/absence.component';
 import { TypeExamComponent } from './components/modals/type-exam/type-exam.component';
 import { ListeMatieresComponent } from './components/interface-stagiaire/liste-matieres/liste-matieres.component';
+import { HistoryComponent } from './components/history/history.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ListeMatieresComponent } from './components/interface-stagiaire/liste-m
     AbsenceComponent,
     TypeExamComponent,
     ListeMatieresComponent,
+    HistoryComponent,
   ],
     imports: [
         BrowserModule,
