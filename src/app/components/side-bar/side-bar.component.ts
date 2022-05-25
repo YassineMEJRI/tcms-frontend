@@ -26,7 +26,7 @@ export class SideBarComponent implements OnInit {
 
   isLoggedIn: Observable<boolean> = new Observable<boolean>();
 
-
+  role: string = "";
   constructor(private groupeService: GroupeService,
               private seanceService: SeanceService,
               private authService: AuthService,
@@ -49,8 +49,9 @@ export class SideBarComponent implements OnInit {
 
     this.authority$.asObservable().subscribe({
       next: (response: string)=>{
-      if (response == "ROLE_FORMATEUR")
-        this.getSeances();
+        this.role = response;
+        if (response == "ROLE_FORMATEUR")
+          this.getSeances();
     }
     })
 

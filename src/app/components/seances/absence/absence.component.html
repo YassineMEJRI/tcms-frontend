@@ -82,7 +82,9 @@
           {{noteStag.prenom}}
         </td>
         <td class="px-6 py-4 justify-center">
-          <input type="number" min="0" max="20" [(ngModel)]="noteStag.note" #/>
+          <input
+            class="appearance-none block bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            type="number" min="0" max="20" step="0.25" [(ngModel)]="noteStag.note"/>
         </td>
       </tr>
       </tbody>
