@@ -32,7 +32,7 @@
       'bg-white hover:bg-gray-100':mat.nb_absences<3}">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{mat.matiere_nom}}</h5>
       <p class="font-normal text-gray-700 dark:text-gray-400">Votre absences: {{mat.nb_absences}}</p>
-      <p class="font-normal text-gray-700 dark:text-gray-400">Votre moyenne: {{mat.note}}</p>
+      <p class="font-normal text-gray-700 dark:text-gray-400">Votre moyenne: {{mat.note | number:'2.0-2' }}</p>
     </a>
   </div>
 </div>

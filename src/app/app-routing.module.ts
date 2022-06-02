@@ -16,6 +16,7 @@ import {SeancesComponent} from "./components/seances/seances.component";
 import {AjouterSeanceComponent} from "./components/seances/ajouter-seance/ajouter-seance.component";
 import {AbsenceComponent} from "./components/seances/absence/absence.component";
 import {ListeMatieresComponent} from "./components/interface-stagiaire/liste-matieres/liste-matieres.component";
+import {HistoryComponent} from "./components/history/history.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'specialites', component: SpecialitesComponent},
   { path: 'matieres', component: MatieresComponent},
   { path: 'seances', component: SeancesComponent},
+  { path: 'admin/historique', component: HistoryComponent},
   { path: 'specialites/ajouter', component: AjouterSpecialiteComponent},
   { path: 'groupes/ajouter', component: AjouterGroupeComponent},
   { path: 'stagiaires/ajouter', component: AjouterStagiaireComponent},
